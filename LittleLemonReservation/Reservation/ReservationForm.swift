@@ -51,8 +51,8 @@ struct ReservationForm: View {
                                   value: $party,
                                   formatter: NumberFormatter())
                         .keyboardType(.numberPad)
-                        .onChange(of: party) { newValue in
-                            if newValue == 0 {
+                        .onChange(of: party) {
+                            if party < 1 {
                                 party = 1
                             }
                         }
