@@ -21,9 +21,20 @@ struct LocationsView: View {
                 .cornerRadius(20)
             
             NavigationView {
-                EmptyView() // TODO 3
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
+                List {
+                    ForEach(model.restaurants.indices, id:\.self) {index in
+                        NavigationLink(destination: RestaurantView( model.restaurants[index])) {
+                            Text(model.restaurants[index].city)
+                            Text(model.restaurants[index].neighborhood)
+                                .font(.caption2)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                }
+                .navigationBarTitle("Locations")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarHidden(true)
+                .scrollContentBackground(.hidden)
             }
         }
         .padding(.top, -10)
