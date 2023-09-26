@@ -114,7 +114,7 @@ struct ReservationForm: View {
             // Error message if form has failed validation
             .alert(isPresented: $showFormInvalidMessage) {
                 Alert(
-                    title: Text(""),
+                    title: Text("Error"),
                     message: Text(errorMessage),
                     dismissButton: .default(Text("Ok"))
 //                    primaryButton: .default(Text("Ok")){
