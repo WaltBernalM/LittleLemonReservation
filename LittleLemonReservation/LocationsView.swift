@@ -21,23 +21,14 @@ struct LocationsView: View {
                 .cornerRadius(20)
             
             NavigationView {
-                List {
-                    ForEach(model.restaurants.indices, id:\.self) {index in
-                        NavigationLink(destination: ReservationForm( model.restaurants[index])) {
-                            VStack(alignment: .leading) {
-                                Text(model.restaurants[index].city)
-                                    .padding(.bottom, 3)
-                                Text("\(model.restaurants[index].neighborhood) - \(model.restaurants[index].phoneNumber)")
-                                    .font(.caption2)
-                                    .foregroundColor(.gray)
-                            }
-                            .padding(.bottom, 5)
-                        }
+                List (model.restaurants, id:\.self) { restaurant in
+                    NavigationLink(destination: ReservationForm(restaurant)) {
+                        RestaurantView(restaurant)
                     }
                 }
                 .navigationBarTitle("Locations")
-                .navigationBarTitleDisplayMode(.inline)
                 .navigationBarHidden(true)
+                .navigationBarTitleDisplayMode(.inline)
                 .scrollContentBackground(.hidden)
             }
         }
