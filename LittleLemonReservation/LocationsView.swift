@@ -23,7 +23,7 @@ struct LocationsView: View {
             NavigationView {
                 List {
                     ForEach(model.restaurants.indices, id:\.self) {index in
-                        NavigationLink(destination: RestaurantView( model.restaurants[index])) {
+                        NavigationLink(destination: ReservationForm( model.restaurants[index])) {
                             Text(model.restaurants[index].city)
                             Text(model.restaurants[index].neighborhood)
                                 .font(.caption2)
