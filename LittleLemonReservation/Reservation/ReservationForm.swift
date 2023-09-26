@@ -52,6 +52,10 @@ struct ReservationForm: View {
                                   formatter: NumberFormatter())
                         .keyboardType(.numberPad)
                         .onChange(of: party) {
+                            // onChange(of:perform:)' was deprecated
+                            // in iOS 17.0: Use `onChange` with a two
+                            // or zero parameter action closure instead.
+                            // That's why is no longer needed the "value in"
                             if party < 1 {
                                 party = 1
                             }
@@ -112,15 +116,17 @@ struct ReservationForm: View {
             }
             
             // Error message if form has failed validation
+//            .alert("ERROR",
+//                isPresented: $showFormInvalidMessage,
+//                actions: { Button("OK", role: .cancel) { }},
+//                message: { Text(self.errorMessage) }
+//            )
+            // It looks better from the above (because this code is color formatted)
             .alert(isPresented: $showFormInvalidMessage) {
                 Alert(
                     title: Text("Error"),
                     message: Text(errorMessage),
                     dismissButton: .default(Text("Ok"))
-//                    primaryButton: .default(Text("Ok")){
-//                        // handle of primary button
-//                    },
-//                    secondaryButton: .cancel()
                 )
             }
         }
