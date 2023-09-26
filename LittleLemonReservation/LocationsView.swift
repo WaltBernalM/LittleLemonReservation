@@ -24,10 +24,14 @@ struct LocationsView: View {
                 List {
                     ForEach(model.restaurants.indices, id:\.self) {index in
                         NavigationLink(destination: ReservationForm( model.restaurants[index])) {
-                            Text(model.restaurants[index].city)
-                            Text(model.restaurants[index].neighborhood)
-                                .font(.caption2)
-                                .foregroundColor(.gray)
+                            VStack(alignment: .leading) {
+                                Text(model.restaurants[index].city)
+                                    .padding(.bottom, 3)
+                                Text("\(model.restaurants[index].neighborhood) - \(model.restaurants[index].phoneNumber)")
+                                    .font(.caption2)
+                                    .foregroundColor(.gray)
+                            }
+                            .padding(.bottom, 5)
                         }
                     }
                 }
