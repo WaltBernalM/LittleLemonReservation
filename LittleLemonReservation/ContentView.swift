@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $model.tabViewSelectedIndex) {
-            EmptyView() // TODO
+            LocationsView()
                 .tag(0)
                 .tabItem {
                     if !model.displayingReservationForm {
