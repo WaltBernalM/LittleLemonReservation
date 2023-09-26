@@ -87,7 +87,7 @@ struct ReservationForm: View {
                     }
                     
                     Button(action: {
-                        /* TODO */
+                        validateForm()
                     }, label: {
                         Text("Confirm reservation")
                     })
