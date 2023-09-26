@@ -110,7 +110,19 @@ struct ReservationForm: View {
             .onChange(of: mustChangeReservation) {
                 model.reservation = temporaryReservation
             }
-            // TODO
+            
+            // Error message if form has failed validation
+            .alert(isPresented: $showFormInvalidMessage) {
+                Alert(
+                    title: Text(""),
+                    message: Text(errorMessage),
+                    dismissButton: .default(Text("Ok"))
+//                    primaryButton: .default(Text("Ok")){
+//                        // handle of primary button
+//                    },
+//                    secondaryButton: .cancel()
+                )
+            }
         }
         .onAppear {
             model.displayingReservationForm = true
