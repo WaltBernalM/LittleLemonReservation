@@ -143,11 +143,11 @@ struct ReservationForm: View {
                 invalidNameMessage = "Names can only contain letters and must have at least 3 characters.\n\n"
             }
             var invalidPhoneMessage = ""
-            if !customerPhoneNumber.isEmpty {
+            if customerPhoneNumber.isEmpty {
                 invalidPhoneMessage = "The phone number cannot be blank.\n\n"
             }
             var invalidEmailMessage = ""
-            if !customerEmail.isEmpty || !isValid(email: customerEmail) {
+            if customerEmail.isEmpty || !isValid(email: customerEmail) {
                 invalidEmailMessage = "The email is invalid and cannot be blank"
             }
             
