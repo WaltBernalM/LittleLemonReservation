@@ -11,7 +11,7 @@ struct LocationsView: View {
     @EnvironmentObject var model: Model
     var body: some View {
         VStack {
-            EmptyView() // TODO 1
+            LittleLemonLogo()
                 .padding(.top, 50)
             
             EmptyView() // TODO 2
