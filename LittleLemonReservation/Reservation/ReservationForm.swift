@@ -107,7 +107,7 @@ struct ReservationForm: View {
             // Makes the form background invisible, the original color is gray
             .scrollContentBackground(.hidden)
             
-            .onChange(of: mustChangeReservation) { _ in
+            .onChange(of: mustChangeReservation) {
                 model.reservation = temporaryReservation
             }
             // TODO
