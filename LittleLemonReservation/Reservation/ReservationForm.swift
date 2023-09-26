@@ -46,12 +46,16 @@ struct ReservationForm: View {
                 RestaurantView(restaurant)
                 HStack {
                     VStack (alignment: .leading) {
-                        Text("PARTY").font(.subheadline)
+                        Text("Party").font(.subheadline)
                         TextField("",
                                   value: $party,
                                   formatter: NumberFormatter())
                         .keyboardType(.numberPad)
-                        /* TODO */
+                        .onChange(of: party) { newValue in
+                            if newValue == 0 {
+                                party = 1
+                            }
+                        }
                     }
                     VStack {
                         DatePicker(selection: $reservationDate, in: Date()..., displayedComponents: [.date, .hourAndMinute]) {
