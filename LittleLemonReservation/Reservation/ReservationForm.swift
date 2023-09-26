@@ -55,7 +55,8 @@ struct ReservationForm: View {
                             // onChange(of:perform:)' was deprecated
                             // in iOS 17.0: Use `onChange` with a two
                             // or zero parameter action closure instead.
-                            // That's why is no longer needed the "value in"
+                            // That's why is no longer needed the "value in",
+                            // otherwise, an alert would be showing.
                             if party < 1 {
                                 party = 1
                             }
